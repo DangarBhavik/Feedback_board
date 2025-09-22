@@ -1,5 +1,6 @@
 let data = [];
 
+
 const searchInput = document.getElementById("q");
 const cancelButton = document.getElementById('closeModal');
 const addBtn = document.getElementById("addList");
@@ -110,18 +111,18 @@ function renderList(data){
         const upvote = document.createElement('button');
         upvote.textContent = `Upvotes: ${item.upvotes || 0}`;
 
-        upvote.addEventListener("click",()=>{
+        upvote.addEventListener("click",(event)=>{
             event.stopPropagation();
             item.upvotes = (item.upvotes || 0 )+1;
             localStorage.setItem("items",JSON.stringify(data));
             renderList(data);
         })
         div.appendChild(upvote);
-        
-        list.appendChild(div);
         div.addEventListener("click", () => {
         showInModal(item);
         });
+        list.appendChild(div);
+        
         
     })
     localStorage.setItem('items', JSON.stringify(data));
@@ -135,7 +136,7 @@ function showInModal(item){
 
     modalContent.innerHTML = "";
 
-    const ids = document.createElement('h2');
+        const ids = document.createElement('h2');
         ids.textContent = item.id;
         modalContent.appendChild(ids);
 
@@ -176,13 +177,21 @@ function showInModal(item){
         })
         modalContent.appendChild(upvote);
 
-        modal.style.display = "block";
+        modal.style.display = "flex";
         
     
 }
+const modal = document.getElementById("modal");
 
 cancelButton.addEventListener("click", () => {
-  document.getElementById("modal").style.display = "none";
+    modal.style.display = "none";
+});
+
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
 });
 
 
@@ -273,5 +282,5 @@ function applyFilters(){
 searchInput.addEventListener("input",applyFilters);
 document.getElementById("tag").addEventListener("change",applyFilters);
 document.getElementById("sort").addEventListener("change",applyFilters);
-
+document.getElementById("modal").style.display = "none";
 

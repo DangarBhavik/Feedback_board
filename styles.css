@@ -202,12 +202,10 @@ button:hover {
     color: var(--card);
     border: none;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    line-height: 28px;
+    line-height: 14px;
     text-align: center;
     transition: all var(--transition);
 }
