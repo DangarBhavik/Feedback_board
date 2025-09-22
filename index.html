@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Feedback Board</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Feedback Board</h1>
+    <div class="controls">
+      <input id="q" placeholder="Search feedback..." />
+    
+      <select id="tag"><option value="">All tags</option></select>
+      <select id="sort" >
+        <option value="newest">Newest</option>
+        <option value="upvotes">Most Upvoted</option>
+        <option value="comments">Most Discussed</option>
+      </select>
+      <button id="themeBtn" aria-pressed="false">🌗</button>
+      
+    </div>
+  </header>
+  <div class="form" id="inputContainer">
+    <input type="text" id="titleInput" placeholder="enter title here..."/>
+    <input type="text" id="descInput" placeholder="enter desc here..."/>
+    <input type="text" id="tagsInput" placeholder="enter tags with separated by space"/>
+    <input type="number" id="commenInput" placeholder="enter comment here..."/>
+    <button id="addList" >AddList</button>
+    
+  </div>
+  <main class="container">
+    <ul id="list" class="grid"></ul>
+  </main>
+
+  <div id="modal" class="modal" >
+    <div class="modal-card">
+      <button id="closeModal" class="close">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
